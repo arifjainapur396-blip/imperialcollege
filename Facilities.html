@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUC Facilities</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:linear-gradient(135deg,#1a2a6c,#b21f1f,#fdbb2d);
+  color:white;
+}
+
+/* HEADER */
+header{
+  background:#002147;
+  color:white;
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{
+  font-size:28px;
+  position:relative;
+}
+
+header h1::after{
+  content:"";
+  width:60px;
+  height:3px;
+  background:#ffcc00;
+  position:absolute;
+  bottom:-8px;
+  left:0;
+}
+
+.back-btn{
+  color:white;
+  text-decoration:none;
+  font-size:16px;
+}
+
+/* SECTION */
+.facilities{
+  padding:80px 8%;
+  text-align:center;
+}
+
+.facilities h1{
+  font-size:38px;
+}
+
+.facilities p{
+  opacity:0.85;
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border-radius:18px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:18px;
+}
+
+.card-content h3{
+  margin:8px 0;
+}
+
+.card-content p{
+  font-size:14px;
+  opacity:0.85;
+}
+
+.stats{
+  display:flex;
+  justify-content:space-around;
+  margin-top:12px;
+}
+
+.stats span{
+  display:block;
+  font-size:18px;
+  font-weight:bold;
+  color:#00ffd5;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Facilities of Imperial College</h1>
+  <a href="index.html" class="back-btn">← Back</a>
+</header>
+
+<section class="facilities">
+  <h1>PUC Science Facilities</h1>
+  <p>Specialized infrastructure for Pre-University (PCMB/PCMC) students</p>
+
+  <div class="grid">
+
+    <!-- Physics Lab -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232">
+      <div class="card-content">
+        <h3>Physics Laboratory</h3>
+        <p>Well-equipped lab for practical experiments based on PUC syllabus.</p>
+        <div class="stats">
+          <div><span>20+</span> Experiments</div>
+          <div><span>100%</span> Practical</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chemistry Lab -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc">
+      <div class="card-content">
+        <h3>Chemistry Laboratory</h3>
+        <p>Safe and modern lab for chemical analysis and reactions.</p>
+        <div class="stats">
+          <div><span>25+</span> Practicals</div>
+          <div><span>Safety</span> Equipped</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Biology Lab -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557">
+      <div class="card-content">
+        <h3>Biology Laboratory</h3>
+        <p>Microscopes and specimens for detailed biological studies.</p>
+        <div class="stats">
+          <div><span>50+</span> Slides</div>
+          <div><span>15+</span> Models</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Computer Lab -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232">
+      <div class="card-content">
+        <h3>Computer Lab</h3>
+        <p>Modern systems for programming and digital learning.</p>
+        <div class="stats">
+          <div><span>40+</span> PCs</div>
+          <div><span>High</span> Speed Net</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Library -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+      <div class="card-content">
+        <h3>PUC Library</h3>
+        <p>Textbooks, reference books, and previous year question papers.</p>
+        <div class="stats">
+          <div><span>5K+</span> Books</div>
+          <div><span>Quiet</span> Study</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Classroom -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
+      <div class="card-content">
+        <h3>Smart Classrooms</h3>
+        <p>Projector-based teaching for better understanding.</p>
+        <div class="stats">
+          <div><span>20+</span> Rooms</div>
+          <div><span>Digital</span> Boards</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coaching -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed">
+      <div class="card-content">
+        <h3>CET / NEET / JEE Coaching</h3>
+        <p>Integrated coaching with expert faculty, regular tests, and doubt-solving sessions.</p>
+        <div class="stats">
+          <div><span>Daily</span> Practice</div>
+          <div><span>Weekly</span> Tests</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

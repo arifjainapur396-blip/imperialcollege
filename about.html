@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Imperial College</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* HEADER */
+header{
+  background:#002147;
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header a{
+  color:white;
+  text-decoration:none;
+}
+
+/* SECTION */
+.section{
+  padding:70px 20px;
+  text-align:center;
+}
+
+h2{
+  margin-bottom:20px;
+}
+
+.one{
+  color:white;
+}
+
+/* LINE */
+h2::after{
+  content:"";
+  width:60px;
+  height:3px;
+  background:#ff9800;
+  display:block;
+  margin:10px auto;
+}
+
+/* HERO */
+.about-hero{
+  height:60vh;
+  background:url('imperial1.png.png') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.about-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,33,71,0.8);
+}
+
+.about-hero h1{
+  color:white;
+  font-size:42px;
+  position:relative;
+}
+
+/* GRID */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+/* CARD */
+.card{
+  background:rgb(255, 255, 255);
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* FACULTY */
+.faculty-card{
+  width:220px;
+}
+.faculty-card img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* INFRA */
+.infra img{
+  width:280px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* IMAGE */
+img{
+  transition:0.3s;
+  cursor:pointer;
+}
+img:hover{
+  transform:scale(1.03);
+}
+
+/* SLIDER */
+.slider{
+  width:90%;
+  max-width:1000px;
+  margin:auto;
+  overflow:hidden;
+  border-radius:12px;
+}
+.slides{
+  display:flex;
+  transition:0.5s;
+}
+.slide{
+  min-width:100%;
+}
+.slide img{
+  width:100%;
+}
+
+/* TESTIMONIAL */
+.testimonial{
+  max-width:600px;
+  margin:auto;
+  background:rgb(255, 255, 255);
+  padding:25px;
+  border-radius:12px;
+}
+
+/* RESULT GRID */
+.result-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+.result-grid img{
+  width:260px;
+  border-radius:10px;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.lightbox img{
+  max-width:80%;
+}
+
+/* SCROLL */
+#scrollTop{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#002147;
+  color:rgb(255, 255, 255);
+  border:none;
+  padding:10px;
+  border-radius:50%;
+  display:none;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2 class="one">About Imperial College</h2>
+<a href="index.html">← Back</a>
+</header>
+
+<!-- HERO -->
+<section class="about-hero section fade-in">
+<h1>About Our College</h1>
+</section>
+
+<!-- ABOUT -->
+<section class="section fade-in">
+<h2>About Our College</h2>
+<p>Imperial S.Y PU College provides top-quality education with strong academic results.</p>
+</section>
+
+<!-- VIDEO -->
+<section class="section fade-in">
+<h2>Campus Life</h2>
+<video controls width="250">
+<source src="imperpal.mp4">  
+</video>
+</section>
+
+<!-- VISION -->
+<section class="section fade-in">
+<h2>Vision & Mission</h2>
+<div class="grid">
+<div class="card">🎯 Vision: Academic Excellence</div>
+<div class="card">🚀 Mission: Quality Education</div>
+</div>
+</section>
+
+<!-- INFRA -->
+<section class="section fade-in">
+<h2>Our Infrastructure</h2>
+<div class="grid infra">
+<img src="ChemLab.jpeg" onclick="openImg(this.src)">
+<img src="BioLab.jpeg" onclick="openImg(this.src)">
+<img src="PhyLab.jpeg" onclick="openImg(this.src)">
+<img src="image/campus.jpg" onclick="openImg(this.src)">
+</div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section fade-in">
+<h2>Student Feedback</h2>
+<div class="testimonial" id="testimonial">Best PU college!</div>
+</section>
+
+<!-- SLIDER -->
+<section class="section fade-in">
+<h2>Our Students Achievements</h2>
+<div class="slider">
+<div class="slides" id="slides">
+<div class="slide"><img src="1.jpeg"></div>
+<div class="slide"><img src="2.jpeg"></div>
+<div class="slide"><img src="3.jpeg"></div>
+<div class="slide"><img src="4.jpeg"></div>
+</div>
+</div>
+</section>
+
+<!-- RESULTS -->
+<section class="section fade-in">
+<h2>Academic Results</h2>
+<div class="result-grid">
+<img src="chart.jpeg" onclick="openImg(this.src)">
+<img src="chart2.jpeg" onclick="openImg(this.src)">
+<img src="chart3.jpeg" onclick="openImg(this.src)">
+<img src="chart4.jpeg" onclick="openImg(this.src)">
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<img id="lightImg">
+</div>
+
+<!-- SCROLL -->
+<button id="scrollTop">↑</button>
+
+<script>
+
+/* TESTIMONIAL */
+const reviews=["Best PU college","Excellent faculty","Top results"];
+let i=0;
+setInterval(()=>{
+ i=(i+1)%reviews.length;
+ document.getElementById("testimonial").innerText=reviews[i];
+},3000);
+
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length; // auto count
+
+let index = 0;
+
+setInterval(()=>{
+ index = (index + 1) % totalSlides;
+ slides.style.transform = `translateX(-${index * 100}%)`;
+}, 3000);
+
+/* LIGHTBOX */
+function openImg(src){
+ document.getElementById("lightbox").style.display="flex";
+ document.getElementById("lightImg").src=src;
+}
+
+/* CHART */
+new Chart(document.getElementById("chart"),{
+ type:'line',
+ data:{
+  labels:["2021","2022","2023","2024","2025"],
+  datasets:[{
+    data:[200,400,700,900,1200],
+    borderColor:"#002147",
+    fill:false
+  }]
+ }
+});
+
+/* SCROLL */
+const btn=document.getElementById("scrollTop");
+
+window.addEventListener("scroll",()=>{
+ btn.style.display=window.scrollY>300?"block":"none";
+
+ document.querySelectorAll('.fade-in').forEach(el=>{
+  if(el.getBoundingClientRect().top < window.innerHeight-100){
+    el.classList.add('show');
+  }
+ });
+});
+
+btn.onclick=()=>{
+ window.scrollTo({top:0,behavior:'smooth'});
+};
+
+</script>
+
+</body>
+</html>

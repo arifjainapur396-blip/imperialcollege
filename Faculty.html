@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Faculty UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+}
+header h1{
+  font-size:26px;
+  letter-spacing:1px;
+}
+.back-btn{
+  text-decoration:none;
+  color:#fff;
+  border:1px solid #fff;
+  padding:6px 14px;
+  border-radius:20px;
+  transition:0.3s;
+}
+.back-btn:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* SECTION */
+section{
+  padding:60px 8%;
+  text-align:center;
+}
+section h2{
+  font-size:36px;
+  margin-bottom:10px;
+}
+section p{
+  color:#ccc;
+  margin-bottom:40px;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.tabs button{
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+.tabs button.active,
+.tabs button:hover{
+  background:#ffcc00;
+  color:#000;
+}
+
+/* GRID */
+.grid{
+  display:none;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.grid.active{display:grid}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  overflow:hidden;
+  backdrop-filter:blur(15px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  transition:0.4s;
+  cursor:pointer;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+.card h3{
+  margin:10px;
+}
+.card p{
+  color:#ddd;
+  margin-bottom:15px;
+}
+
+/* POPUP */
+.popup{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.popup-box{
+  background:#fff;
+  color:#000;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  max-width:350px;
+  animation:fadeIn 0.4s ease;
+}
+.popup-box img{
+  width:100px;
+  border-radius:50%;
+}
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:25px;
+  color:#fff;
+  cursor:pointer;
+}
+
+@keyframes fadeIn{
+  from{transform:scale(0.8);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* VIDEO */
+.slider{
+  max-width:900px;
+  margin:auto;
+  position:relative;
+}
+.slide{display:none}
+.slide.active{display:block}
+.slide iframe{
+  width:100%;
+  height:420px;
+  border-radius:15px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+.btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ffcc00;
+  border:none;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.prev{left:-20px}
+.next{right:-20px}
+
+/* MOBILE */
+@media(max-width:768px){
+.slide iframe{height:230px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Imperial College Faculty</h1>
+<a href="index.html" class="back-btn">Back</a>
+</header>
+
+<section>
+<h2>Meet Our Experts</h2>
+<p>Highly experienced faculty guiding your future</p>
+
+<div class="tabs">
+<button class="active" onclick="showTab(0)">Physics</button>
+<button onclick="showTab(1)">Chemistry</button>
+<button onclick="showTab(2)">Biology</button>
+<button onclick="showTab(3)">Maths</button>
+</div>
+
+<div class="grid active">
+<div class="card" onclick="openPopup('Dr Rajesh','Physics Expert','20 Years','https://images.unsplash.com/photo-1607746882042-944635dfe10e')">
+<img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+<h3>Dr Rajesh</h3>
+<p>Physics Expert</p>
+</div>
+</div>
+
+<div class="grid">
+<div class="card" onclick="openPopup('Anita','Chemistry','10 Years','https://images.unsplash.com/photo-1595152772835-219674b2a8a6')">
+<img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
+<h3>Anita</h3>
+<p>Chemistry</p>
+</div>
+</div>
+
+<div class="grid">
+<div class="card" onclick="openPopup('Sneha','Biology','12 Years','https://images.unsplash.com/photo-1580489944761-15a19d654956')">
+<img src="https://images.unsplash.com/photo-1580489944761-15a19d654956">
+<h3>Sneha</h3>
+<p>Biology</p>
+</div>
+</div>
+
+<div class="grid">
+<div class="card" onclick="openPopup('Rahul','Maths','8 Years','https://images.unsplash.com/photo-1560250097-0b93528c311a')">
+<img src="https://images.unsplash.com/photo-1560250097-0b93528c311a">
+<h3>Rahul</h3>
+<p>Mathematics</p>
+</div>
+</div>
+
+</section>
+
+<section>
+<h2>Faculty Demo Classes</h2>
+
+<div class="slider">
+<div class="slide active">
+<iframe src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+</div>
+
+<div class="slide">
+<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+</div>
+
+<button class="btn prev" onclick="prev()">❮</button>
+<button class="btn next" onclick="next()">❯</button>
+</div>
+
+</section>
+
+<div class="popup" id="popup">
+<span class="close" onclick="closePopup()">✖</span>
+<div class="popup-box" id="popupBox"></div>
+</div>
+
+<script>
+function showTab(n){
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.grid').forEach(g=>g.classList.remove('active'));
+document.querySelectorAll('.tabs button')[n].classList.add('active');
+document.querySelectorAll('.grid')[n].classList.add('active');
+}
+
+function openPopup(name,sub,exp,img){
+document.getElementById('popup').style.display='flex';
+document.getElementById('popupBox').innerHTML=
+`<img src="${img}">
+<h2>${name}</h2>
+<p>${sub}</p>
+<p>${exp}</p>`;
+}
+
+function closePopup(){
+document.getElementById('popup').style.display='none';
+}
+
+let i=0;
+const slides=document.querySelectorAll('.slide');
+
+function show(n){
+slides.forEach(s=>s.classList.remove('active'));
+slides[n].classList.add('active');
+}
+
+function next(){i=(i+1)%slides.length;show(i)}
+function prev(){i=(i-1+slides.length)%slides.length;show(i)}
+
+setInterval(next,4000);
+</script>
+
+</body>
+</html>
